@@ -1,6 +1,7 @@
 import React from "react";
 import Collection from "@/components/Collection";
 import Image from "next/image";
+import NavBar from "@/components/NavBar";
 
 const mockData = [
   {
@@ -36,13 +37,14 @@ const mockData = [
 const page = () => {
   return (
     <>
-      <div className="relative h-screen">
+      <NavBar />
+      <div className="relative h-screen mt-24">
         <Image
           src="/cover/jewelry.jpeg"
           alt="Hero Image"
           fill
-          objectFit="cover"
           quality={100}
+          className="object-cover"
         />
         <div className="absolute inset-0 flex items-center justify-center">
           <h1 className="text-4xl font-bold text-white">Jewelry Collections</h1>
