@@ -40,7 +40,7 @@ const page = () => {
         <Image
           src="/cover/jewelry.jpeg"
           alt="Hero Image"
-          layout="fill"
+          fill
           objectFit="cover"
           quality={100}
         />
