@@ -1,40 +1,23 @@
-import React from "react";
+"use client";
+
 import Collection from "@/components/Collection";
 import Image from "next/image";
 import NavBar from "@/components/NavBar";
+import { useState, useEffect } from "react";
 
-const mockData = [
-  {
-    img: "https://via.placeholder.com/150",
-    category: "Silver Jewelry",
-  },
-  {
-    img: "https://via.placeholder.com/150",
-    category: "Gold Jewelry",
-  },
-  {
-    img: "https://via.placeholder.com/150",
-    category: "Diamond Jewelry",
-  },
-  {
-    img: "https://via.placeholder.com/150",
-    category: "Platinum Jewelry",
-  },
-  {
-    img: "https://via.placeholder.com/150",
-    category: "Gemstone Jewelry",
-  },
-  {
-    img: "https://via.placeholder.com/150",
-    category: "Pearl Jewelry",
-  },
-  {
-    img: "https://via.placeholder.com/150",
-    category: "Bridal Jewelry",
-  },
-];
+const Collections = () => {
+  const [collections, setCollections] = useState([]);
 
-const page = () => {
+  useEffect(() => {
+    const fetchCollections = async () => {
+      const res = await fetch("api/collections");
+      const data = await res.json();
+      setCollections(data);
+      console.log(data);
+    };
+    fetchCollections();
+  }, []);
+
   return (
     <>
       <NavBar />
@@ -50,13 +33,13 @@ const page = () => {
           <h1 className="text-4xl font-bold text-white">Jewelry Collections</h1>
         </div>
       </div>
-      <div className="py-10 grid lg:grid-cols-3 gap-5 md:grid-cols-2 grid-cols-1">
-        {mockData.map((collection, index) => {
+      <div className="px-10 py-10 grid lg:grid-cols-3 gap-5 md:grid-cols-2 grid-cols-1">
+        {collections.map((collection, index) => {
           return (
             <Collection
               key={index}
+              name={collection.name}
               img={collection.img}
-              category={collection.category}
             />
           );
         })}
@@ -65,4 +48,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Collections;
