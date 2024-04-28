@@ -1,9 +1,8 @@
 "use client";
 
-import Catalogue from "@/components/Catalogue";
-import Collection from "@/components/Collection";
 import ProductPage from "@/components/ProductPage";
 import { useState, useEffect } from "react";
+import NavBar from "@/components/NavBar";
 
 const Bracelets = () => {
   const [products, setProducts] = useState([]);
@@ -21,6 +20,7 @@ const Bracelets = () => {
 
   return (
     <>
+      <NavBar color={"black"}/>
       {products.map((collection, index) => {
         return (
           <ProductPage

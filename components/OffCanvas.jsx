@@ -51,6 +51,13 @@ const OffCanvas = ({ isOpen, onClose }) => {
             >
               Contact
             </Link>
+            <Link
+              href="/browse"
+              onClick={onClose}
+              className="block py-2 px-4 bg-gray-100 hover:bg-gray-200 rounded-md"
+            >
+              Collections
+            </Link>
           </div>
         </div>
       </div>

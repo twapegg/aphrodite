@@ -5,7 +5,7 @@ export default function Hero() {
     <section className="relative max-w-screen h-screen">
       <video
         src="https://lv-vod.fl.freecaster.net/vod/louisvuitton/RXUtM83zw0_HD.mp4"
-        frameborder="0"
+        frameBorder="0"
         allowFullScreen
         muted
         loop

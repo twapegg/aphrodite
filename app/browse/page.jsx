@@ -4,6 +4,7 @@ import Collection from "@/components/Collection";
 import Image from "next/image";
 import NavBar from "@/components/NavBar";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const Collections = () => {
   const [collections, setCollections] = useState([]);
@@ -20,14 +21,17 @@ const Collections = () => {
 
   return (
     <>
-      <NavBar />
-      <div className="relative h-screen mt-24">
+      <NavBar bg={"white"} color="black" />
+      <div className="relative h-[80vh] mt-4 xl:mt-20">
         <Image
           src="/cover/jewelry.jpeg"
           alt="Hero Image"
           fill
           quality={100}
           className="object-cover"
+          style={{
+            objectPosition: "35% 20%",
+          }}
         />
         <div className="absolute inset-0 flex items-center justify-center">
           <h1 className="text-4xl font-bold text-white">Jewelry Collections</h1>
@@ -36,11 +40,13 @@ const Collections = () => {
       <div className="px-10 py-10 grid lg:grid-cols-3 gap-5 md:grid-cols-2 grid-cols-1">
         {collections.map((collection, index) => {
           return (
-            <Collection
+            <Link
+              href={`/browse/collections/${collection.name}`}
               key={index}
-              name={collection.name}
-              img={collection.img}
-            />
+              className="relative transition-transform duration-300 group-hover:scale-110"
+            >
+              <Collection name={collection.name} img={collection.img} />
+            </Link>
           );
         })}
       </div>

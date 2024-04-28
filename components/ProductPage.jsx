@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import ImageDisplay from "@/components/ImageDisplay";
 import { FaRegHeart } from "react-icons/fa";
-import NavBarTrans from "@/components/NavBarTrans";
+import NavBarTrans from "@/components/NavBar";
 
 const ProductPage = ({
   collection,
@@ -11,21 +11,22 @@ const ProductPage = ({
   imgs,
   description,
   isAvailable,
-  category
+  category,
 }) => {
   return (
     <>
-      <NavBarTrans />
       <div className="h-screen flex">
         {/* Left side: Carousel of images */}
         <div className="w-1/2">
-          {imgs.map((imgUrl, index) => (
-            <ImageDisplay
-              key={index}
-              source={imgUrl}
-              alt={`${name}-${index + 1}`}
-            />
-          ))}
+          {imgs
+            ? imgs.map((imgUrl, index) => (
+                <ImageDisplay
+                  key={index}
+                  source={imgUrl}
+                  alt={`${name}-${index + 1}`}
+                />
+              ))
+            : null}
         </div>
 
         {/* Right side: Product details */}
@@ -42,7 +43,9 @@ const ProductPage = ({
             <button className="bg-black text-white py-2.5 text-m rounded-full w-full mt-8 ">
               Add to Shopping Bag
             </button>
-            <p className="text-lg flex">{isAvailable ? "Available" : "Not Available"}</p>
+            <p className="text-lg flex mt-5">
+              {isAvailable ? "Available" : "Not Available"}
+            </p>
             <p className="text-sm mt-7 text-gray-500">{description}</p>
           </div>
         </div>

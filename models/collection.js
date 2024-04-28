@@ -9,6 +9,10 @@ const collectionSchema = new Schema({
     type: String,
     required: true,
   },
+  models: {
+    type: [String],
+    required: true,
+  },
 });
 
 export default models.Collections || model("Collections", collectionSchema);
