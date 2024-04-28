@@ -49,12 +49,16 @@ const CollectionPage = ({ params }) => {
               alt={`${collectionName}-${index + 1}`}
               width={450}
               height={450}
+              unoptimized={true}
             />
           ))}
         </div>
         <div className="grid grid-cols-4 gap-4 mt-10">
           {products.map((product, index) => (
-            <Link href={`/browse/collections/${collectionName}/${product.name}`} key={index}>
+            <Link
+              href={`/browse/collections/${collectionName}/${product.name}`}
+              key={index}
+            >
               <Image
                 src={product.imgs[0]}
                 alt={product.name}
@@ -62,6 +66,7 @@ const CollectionPage = ({ params }) => {
                 height={500}
                 loading="lazy"
                 className="bg-gradient-to-t from-zinc-100 to-zinc-300"
+                unoptimized={true}
               />
             </Link>
           ))}
