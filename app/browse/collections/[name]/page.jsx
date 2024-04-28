@@ -50,6 +50,7 @@ const CollectionPage = ({ params }) => {
               width={450}
               height={450}
               unoptimized={true}
+              loading="lazy"
             />
           ))}
         </div>
