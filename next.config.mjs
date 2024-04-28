@@ -23,10 +23,11 @@ const nextConfig = {
   },
 
   images: {
-    domains: [
-      "eu.louisvuitton.com",
-      "via.placeholder.com",
-      "www.louisvuitton.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
     ],
   },
 };
