@@ -1,16 +1,29 @@
 "use client";
-
 import { BsBag } from "react-icons/bs";
 import { FaBars, FaSearch, FaRegUser } from "react-icons/fa";
 import Link from "next/link";
-
 import OffCanvas from "@/components/OffCanvas";
-
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const NavBar = ({ bg, color }) => {
+  const [showShoppingBag, setShowShoppingBag] = useState(false);
+  const shoppingBagRef = useRef(null);
+
+  const toggleShoppingBag = () => {
+    setShowShoppingBag(!showShoppingBag);
+  };
+
+  const closeShoppingBag = (event) => {
+    if (
+      shoppingBagRef.current &&
+      !shoppingBagRef.current.contains(event.target)
+    ) {
+      setShowShoppingBag(false);
+    }
+  };
+
   const [isOffCanvasOpen, setIsOffCanvasOpen] = useState(false);
-  const [isFixed, setIsFixed] = useState(false); // New state for fixed navbar
+  const [isFixed, setIsFixed] = useState(false);
 
   const toggleOffCanvas = () => {
     setIsOffCanvasOpen(!isOffCanvasOpen);
@@ -22,14 +35,16 @@ const NavBar = ({ bg, color }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.pageYOffset;
-      setIsFixed(scrollPosition > 0); // Set isFixed to true when scrolled down
+      const scrollPosition = window.scrollY;
+      setIsFixed(scrollPosition > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
+    document.addEventListener("mousedown", closeShoppingBag);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", closeShoppingBag);
     };
   }, []);
 
@@ -53,12 +68,11 @@ const NavBar = ({ bg, color }) => {
               <FaBars className="mb-[0.5]" />
               <span>Menu</span>
             </button>
-            <button className="invisible lg:visible py-2   xl:text-xl relative group-hover:text-black flex items-center justify-center space-x-4">
+            <button className="invisible lg:visible py-2 xl:text-xl relative group-hover:text-black flex items-center justify-center space-x-4">
               <FaSearch className="mb-[0.5]" />
               <span>Search</span>
             </button>
           </div>
-
           {/* Center */}
           <div className="flex justify-center w-1/3">
             <Link href="/">
@@ -67,7 +81,6 @@ const NavBar = ({ bg, color }) => {
               </span>
             </Link>
           </div>
-
           {/* Right side */}
           <div className="flex items-center w-1/3 justify-end gap-10">
             <Link href="/contact" className="invisible lg:visible">
@@ -75,10 +88,23 @@ const NavBar = ({ bg, color }) => {
                 Contact Us
               </span>
             </Link>
-            <button className="invisible lg:visible py-2 text-xl relative group-hover:text-black flex items-center justify-center space-x-4">
-              <BsBag className="mb-1" />
-            </button>
-
+            <div className="relative">
+              <button
+                className="invisible lg:visible py-2 text-xl relative group-hover:text-black flex items-center justify-center space-x-4"
+                onClick={toggleShoppingBag}
+              >
+                <BsBag className="mb-1" />
+              </button>
+              {showShoppingBag && (
+                <div
+                  ref={shoppingBagRef}
+                  className="absolute right-0 mt-2 bg-white shadow-lg rounded-md max-w-xl" // Added max-w-xl class
+                >
+                  {/* Render the list of items from the database here */}
+                  <p className="p-4"> Shopping Bag Items</p>
+                </div>
+              )}
+            </div>
             <button className="py-2 text-xl relative group-hover:text-black flex items-center justify-center space-x-4">
               <FaRegUser className="mb-1" />
             </button>
