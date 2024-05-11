@@ -1,8 +1,8 @@
-import { Inter } from "next/font/google";
+import { Faustina } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
-
-const inter = Inter({ subsets: ["latin"] });
+const font = Faustina({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Aphrodite",
@@ -12,10 +12,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={font.className}>
         <main>
-        
           {children}
+          <Footer />
         </main>
       </body>
     </html>
