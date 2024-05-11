@@ -17,9 +17,9 @@ const Footer = () => {
 
         <div className="col-span-1">
           <h1>
-            ABOUT APHRODITE
+            THE HOUSE OF APHRODITE
             <div className="text-gray-600 mt-8 flex flex-col gap-2">
-              <Link href="/contact">Contact Us</Link>
+              <Link href="/contact">About Us</Link>
               <Link href="/faq">FAQ's</Link>
             </div>
           </h1>
