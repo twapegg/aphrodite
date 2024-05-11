@@ -23,7 +23,6 @@ const Product = ({ params }) => {
     fetchProduct();
   }, [productName, collectionName]);
 
-  console.log(product._id)
 
   return (
     <>

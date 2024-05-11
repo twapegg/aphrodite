@@ -1,8 +1,6 @@
-import Image from "next/image";
 import React from "react";
 import ImageDisplay from "@/components/ImageDisplay";
 import { FaRegHeart } from "react-icons/fa";
-import NavBarTrans from "@/components/NavBar";
 
 const ProductPage = ({
   collection,
@@ -11,8 +9,16 @@ const ProductPage = ({
   imgs,
   description,
   isAvailable,
-  category,
 }) => {
+  const addToCart = async (userID, jewelry) => {
+    const res = await fetch("/api/shoppingbag/add", {
+      method: "POST",
+      body: JSON.stringify({ userID, jewelry }),
+    });
+    const data = await res.json();
+    console.log(data);
+  };
+
   return (
     <>
       <div className="h-screen flex">
@@ -40,7 +46,10 @@ const ProductPage = ({
               </span>
             </div>
             <p className="text-s text-gray-700 ">${price}</p>
-            <button className="bg-black text-white py-2.5 text-m rounded-full w-full mt-8 ">
+            <button
+              onClick={addToCart}
+              className="bg-black text-white py-2.5 text-m rounded-full w-full mt-8 "
+            >
               Add to Shopping Bag
             </button>
             <p className="text-lg flex mt-5">
