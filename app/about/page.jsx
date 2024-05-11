@@ -63,9 +63,9 @@ const page = () => {
           <div className="justify-center">
             <h5 className="text-black text-center text-lg pt-5 mx-52 ">
               With their passion for jewelry and their talent for business,
-              Altonaga, Daymiel, and Espina have journeyed from Philippine’s End
-              to a place on the world’s stage alongside kings, presidents and
-              cultural icons.
+              Altonaga, Daymiel, and Espina have journeyed from
+              Philippine&apos;s End to a place on the world&apos;s stage
+              alongside kings, presidents and cultural icons.
             </h5>
           </div>
         </div>
@@ -97,7 +97,7 @@ const page = () => {
 
         <div className="mt-52 flex items-center flex-col">
           <h1 className="text-black text-5xl text-center font-bold">
-            "The Only Diamond We See Is What Is Inside You"
+            &quot;The Only Diamond We See Is What Is Inside You&quot;
           </h1>
           <h5 className="text-gray-800 mt-10 text-justify text-2xl lg:mx-72 mx-20">
             Even with the ever growing influence of the brand in the fashion
