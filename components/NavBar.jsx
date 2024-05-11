@@ -165,6 +165,11 @@ const NavBar = ({ bg, color }) => {
             </button>
           </div>
         </div>
+        <div>
+          <div className="h-1 bg-gray-200 dark:bg-gray-700">
+            asdsadsaad
+          </div>
+        </div>
       </nav>
     </>
   );

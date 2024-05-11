@@ -10,7 +10,7 @@ const Footer = () => {
             HELP
             <div className="text-gray-600 mt-8 flex flex-col gap-2">
               <Link href="/contact">Contact Us</Link>
-              <Link href="/faq">FAQ's</Link>
+              <Link href="/faq">FAQ&apos;s</Link>
             </div>
           </h1>
         </div>
@@ -20,7 +20,7 @@ const Footer = () => {
             THE HOUSE OF APHRODITE
             <div className="text-gray-600 mt-8 flex flex-col gap-2">
               <Link href="/contact">About Us</Link>
-              <Link href="/faq">FAQ's</Link>
+              <Link href="/faq">Goddess of Beauty</Link>
             </div>
           </h1>
         </div>
@@ -28,7 +28,6 @@ const Footer = () => {
           <h1>
             CONNECT
             <div className="text-gray-600 mt-8 flex flex-col gap-2">
-              <Link href="/contact">Sign In</Link>
               <a
                 target="_blank"
                 href="https://www.facebook.com/profile.php?id=100027980442692"
