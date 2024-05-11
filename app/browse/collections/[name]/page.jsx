@@ -26,16 +26,12 @@ const CollectionPage = ({ params }) => {
     fetchProducts();
   }, [collectionName]);
 
-  products.map((product) => {
-    console.log(product.imgs);
-  });
-
   // Flatten the models array using flatMap
   const modelImages = images.flatMap((image) => image.models);
 
   return (
     <div>
-      <NavBar bg={"white"} color="black" />
+      <NavBar bg="white" color="black" sub={true} />
       <div className="mt-24 px-6">
         <span className="text-2xl text-black">
           {collectionName} Collections

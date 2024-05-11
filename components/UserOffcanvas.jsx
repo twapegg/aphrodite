@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
-import { useRouter } from "next/navigation";
 
 const UserOffCanvas = ({ isOpen, onClose }) => {
   const { data: session } = useSession();

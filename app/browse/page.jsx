@@ -21,8 +21,8 @@ const Collections = () => {
 
   return (
     <>
-      <NavBar bg={"white"} color="black" />
-      <div className="relative h-[80vh] mt-4 xl:mt-20">
+      <NavBar bg="white" color="black" />
+      <div className="relative h-[80vh] mt-7 xl:mt-20">
         <Image
           src="/cover/jewelry.jpeg"
           alt="Hero Image"

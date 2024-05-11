@@ -1,14 +1,17 @@
 "use client";
 import { BsBag } from "react-icons/bs";
 import { FaBars, FaSearch, FaRegUser, FaTimes } from "react-icons/fa";
+import { LuFilter } from "react-icons/lu";
 import Link from "next/link";
 import OffCanvas from "@/components/OffCanvas";
 import { useEffect, useState, useRef } from "react";
 
 import UserOffCanvas from "./UserOffcanvas";
+import BreadCrumbs from "./BreadCrumbs";
 
-const NavBar = ({ bg, color }) => {
+const NavBar = ({ bg, color, sub = false }) => {
   // menu offcanvas
+
   const [isOffCanvasOpen, setIsOffCanvasOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
 
@@ -69,6 +72,27 @@ const NavBar = ({ bg, color }) => {
     };
   }, []);
 
+  // get path for breadcrumbs
+
+  const breadcrumbs = [
+    {
+      name: "Home",
+      link: "/",
+    },
+    {
+      name: "Collections",
+      link: "/collections",
+    },
+    {
+      name: "Summer",
+      link: "/collections/summer",
+    },
+    {
+      name: "Dresses",
+      link: "/collections/summer/dresses",
+    },
+  ];
+
   return (
     <>
       <UserOffCanvas
@@ -77,12 +101,14 @@ const NavBar = ({ bg, color }) => {
       />
       <OffCanvas isOpen={isOffCanvasOpen} onClose={closeOffCanvas} />
       <nav
-        className={`py-6 xl:py-6 px-10 xl:px-20 border-gray-200 bg-${bg} dark:border-gray-700 ${
+        className={`py-6 xl:py-6  border-gray-200 bg-${bg} dark:border-gray-700 ${
           isFixed ? "fixed" : "absolute"
         } top-0 left-0 right-0 z-10 transition-colors duration-500 ease-in-out group hover:bg-white hover:text-black`}
       >
         <div
-          className={`flex flex-wrap items-center justify-between w-full text-${color}`}
+          className={`pb-4 px-10 xl:px-20 flex flex-wrap items-center justify-between w-full text-${color} ${
+            sub ? "border-b border-gray-300" : null
+          }`}
         >
           {/* Left side */}
           <div className="flex items-center w-1/3 gap-10">
@@ -165,11 +191,22 @@ const NavBar = ({ bg, color }) => {
             </button>
           </div>
         </div>
-        <div>
-          <div className="h-1 bg-gray-200 dark:bg-gray-700">
-            asdsadsaad
+        {sub ? (
+          <div
+            className={`px-10 xl:px-20 flex justify-between items-center mt-4 bg-white text-black`}
+          >
+            <div className=" text-black">
+              <BreadCrumbs />
+            </div>
+            <button
+              type="button"
+              className="border border-black text-black py-2 w-1/12 rounded-3xl flex justify-center items-center gap-2"
+            >
+              Filter
+              <LuFilter />
+            </button>
           </div>
-        </div>
+        ) : null}
       </nav>
     </>
   );

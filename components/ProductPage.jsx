@@ -16,7 +16,6 @@ const ProductPage = ({
       body: JSON.stringify({ userID, jewelry }),
     });
     const data = await res.json();
-    console.log(data);
   };
 
   return (
