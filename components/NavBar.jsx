@@ -150,7 +150,7 @@ const NavBar = ({ bg, color }) => {
                   </Link>
 
                   <Link href="/checkout">
-                    <button className="text-black bg-white py-2 px-4 rounded-3xl ml-4">
+                    <button className="text-black bg-white border border-black py-2 px-4 rounded-3xl ml-4">
                       Checkout
                     </button>
                   </Link>

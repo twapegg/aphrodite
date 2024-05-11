@@ -1,5 +1,5 @@
 import Cart from "@/models/cart";
-import { connectToDB } from "@utils/database";
+import { connectToDB } from "@/utils/database";
 
 export const POST = async (request) => {
   const { userID, jewelry } = await request.json();
