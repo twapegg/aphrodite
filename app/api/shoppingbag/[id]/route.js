@@ -1,6 +1,6 @@
 import Cart from "@/models/cart";
 
-import { connectToDB } from "@utils/database";
+import { connectToDB } from "@/utils/database";
 
 export const GET = async (request, { params }) => {
     try {
