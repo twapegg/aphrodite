@@ -4,7 +4,7 @@ import NavBar from "@/components/NavBar";
 const page = () => {
   return (
     <div>
-      <NavBar bg={"white"} color="black" />
+      <NavBar bg="white" color="black" />
       <div>
         <div className="flex flex-col items-center justify-center pt-24 pb-20">
           <h1 className="text-6xl text-black py-6">APHRODITE</h1>

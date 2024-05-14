@@ -10,9 +10,9 @@ const Collection = ({ name, img }) => {
           <Image src={img} alt={`${name}-image`} width={250} height={250} unoptimized={true}/>
         </div>
         <span className="text-3xl">{name}</span>
-        <Link href="/collection/silver-jewelry" className="text-gray-700">
+        <span className="text-gray-700 underline">
           View Collection
-        </Link>
+        </span>
       </div>
     </div>
   );

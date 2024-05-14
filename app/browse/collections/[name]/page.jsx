@@ -1,5 +1,5 @@
 "use client";
-import ImageDisplay from "@/components/ImageDisplay";
+
 import NavBar from "@/components/NavBar";
 import Image from "next/image";
 import Link from "next/link";
