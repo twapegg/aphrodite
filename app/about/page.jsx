@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from "@/components/NavBar";
+import Image from "next/image";
 
 const page = () => {
   return (
@@ -44,17 +45,38 @@ const page = () => {
             />
           </div>
         </div>
-
-        <div className="grid lg:grid-cols-2 grid-cols-1">
-          <div className=" bg-gray-200 flex flex-cols col-span-1 m-5">
-            <h1 className="justify-center items-center m-32">left box image</h1>
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mx-auto mt-10 max-w-6xl">
+          <div className="col-span-1 flex justify-center items-center">
+            <Image
+              src="https://i.pinimg.com/736x/5f/b8/23/5fb823d313b955830d13d09e1faa1618.jpg"
+              alt="Aphrodite Model Image 1"
+              className="w-full"
+              width={500}
+              height={550}
+            />
           </div>
-          <div className="bg-gray-200 flex flex-cols col-span-1 m-5">
-            <h1 className="justify-center  items-center m-32">
-              Right box image
-            </h1>
+          <div className="col-span-1">
+            <div className="mb-4">
+              <Image
+                src="https://www.zoemagazine.net/wp-content/uploads/2023/08/LOUIS-VUITTON-BLOSSOM_ADV-CAMPAIGN_ANA-DE-ARMAS_%C2%A9CRAIG-MC-DEAN_CMJN.jpg"
+                alt="Aphrodite Image"
+                className="w-full"
+                width={500}
+                height={250}
+              />
+            </div>
+            <div>
+              <Image
+                src="https://media.femalemag.com.sg/public/2024/03/Graff-Signature-Bangle-1.jpg"
+                alt="Aphrodite Image"
+                className="w-full"
+                width={500}
+                height={500}
+              />
+            </div>
           </div>
         </div>
+
         <div>
           <h1 className="text-3xl text-center text-black pt-16">BEGINNINGS</h1>
           <h2 className="text-xl text-center mt-1 text-gray-600 pt-2">
@@ -79,7 +101,7 @@ const page = () => {
                 their journey to success. Struggling in the first few years, the
                 group persevere until they caught a breakthrough when they were
                 promoted in the local newspaper. As everyone caught wind of the
-                brand the quick incline to success began.{" "}
+                brand the quick incline to success began.
               </h5>
             </div>
           </div>

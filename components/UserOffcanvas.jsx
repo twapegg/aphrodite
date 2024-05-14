@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import Tooltip from "@mui/material/Tooltip";
 
 const UserOffCanvas = ({ isOpen, onClose }) => {
   const { data: session } = useSession();
@@ -28,12 +29,14 @@ const UserOffCanvas = ({ isOpen, onClose }) => {
       ></div>
       <div className="absolute top-0 right-0 h-full w-2/6 bg-white text-black shadow-lg transition-all duration-300 ease-in-out transform translate-x-0">
         <div className="p-4 relative">
-          <button
-            onClick={onClose}
-            className="p-1 absolute top-3 left-3 text-xl text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg"
-          >
-            <FaTimes />
-          </button>
+          <Tooltip title="Close">
+            <button
+              onClick={onClose}
+              className="p-1 absolute top-3 left-3 text-xl text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg"
+            >
+              <FaTimes />
+            </button>
+          </Tooltip>
           <div className="space-y-4 mt-10 px-14 flex justify-center flex-col items-center">
             {session?.user ? (
               <h2>Welcome, {session.user.name}!</h2>

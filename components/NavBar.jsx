@@ -5,6 +5,7 @@ import { LuFilter } from "react-icons/lu";
 import Link from "next/link";
 import OffCanvas from "@/components/OffCanvas";
 import { useEffect, useState, useRef } from "react";
+import Tooltip from "@mui/material/Tooltip";
 
 import UserOffCanvas from "./UserOffcanvas";
 import BreadCrumbs from "./BreadCrumbs";
@@ -72,27 +73,6 @@ const NavBar = ({ bg, color, sub = false }) => {
     };
   }, []);
 
-  // get path for breadcrumbs
-
-  const breadcrumbs = [
-    {
-      name: "Home",
-      link: "/",
-    },
-    {
-      name: "Collections",
-      link: "/collections",
-    },
-    {
-      name: "Summer",
-      link: "/collections/summer",
-    },
-    {
-      name: "Dresses",
-      link: "/collections/summer/dresses",
-    },
-  ];
-
   return (
     <>
       <UserOffCanvas
@@ -101,12 +81,14 @@ const NavBar = ({ bg, color, sub = false }) => {
       />
       <OffCanvas isOpen={isOffCanvasOpen} onClose={closeOffCanvas} />
       <nav
-        className={`py-6 xl:py-6  border-gray-200 bg-${bg} dark:border-gray-700 ${
+        className={`py-6 xl:py-6 border-gray-200 ${
+          isFixed ? "bg-white text-black" : `bg-${bg} text-white`
+        }  dark:border-gray-700 ${
           isFixed ? "fixed" : "absolute"
         } top-0 left-0 right-0 z-10 transition-colors duration-500 ease-in-out group hover:bg-white hover:text-black`}
       >
         <div
-          className={`pb-4 px-10 xl:px-20 flex flex-wrap items-center justify-between w-full text-${color} ${
+          className={`pb-4 px-10 xl:px-20 pt-3 flex flex-wrap items-center justify-between w-full text-${color} ${
             sub ? "border-b border-gray-300" : null
           }`}
         >
@@ -127,7 +109,7 @@ const NavBar = ({ bg, color, sub = false }) => {
           {/* Center */}
           <div className="flex justify-center w-1/3">
             <Link href="/">
-              <span className="text-3xl lg:text-4xl whitespace-nowrap group-hover:text-black">
+              <span className="text-3xl lg:text-5xl font-semibold whitespace-nowrap group-hover:text-black">
                 Aphrodite
               </span>
             </Link>
@@ -140,14 +122,16 @@ const NavBar = ({ bg, color, sub = false }) => {
               </span>
             </Link>
             <div className="relative">
-              <button
-                onClick={
-                  isShoppingBagOpen ? closeShoppingBag : toggleShoppingBag
-                }
-                className="invisible lg:visible py-2 text-xl relative group-hover:text-black flex items-center justify-center space-x-4"
-              >
-                <BsBag className="mb-1" />
-              </button>
+              <Tooltip title="Shopping Bag">
+                <button
+                  onClick={
+                    isShoppingBagOpen ? closeShoppingBag : toggleShoppingBag
+                  }
+                  className="invisible lg:visible py-2 text-xl relative group-hover:text-black flex items-center justify-center space-x-4"
+                >
+                  <BsBag className="mb-1" />
+                </button>
+              </Tooltip>
               <div
                 className={`rounded-lg border border-black absolute top-12 right-0 w-80 h-96 bg-white shadow-lg transition-all duration-300 text-black ${
                   isShoppingBagOpen
@@ -160,12 +144,14 @@ const NavBar = ({ bg, color, sub = false }) => {
                   <h2 className="text-2xl">Shopping Bag</h2>
                   <div className="flex justify-between items-center mt-4">
                     <span className="text-lg">No items in your bag</span>
-                    <button
-                      onClick={closeShoppingBag}
-                      className="p-1 absolute top-3 right-3 text-xl text-black hover:bg-gray-200 hover:text-gray-900 rounded-lg"
-                    >
-                      <FaTimes />
-                    </button>
+                    <Tooltip title="Close">
+                      <button
+                        onClick={closeShoppingBag}
+                        className="p-1 absolute top-3 right-3 text-xl text-black hover:bg-gray-200 hover:text-gray-900 rounded-lg"
+                      >
+                        <FaTimes />
+                      </button>
+                    </Tooltip>
                   </div>
                 </div>
                 <div className="flex justify-center items-center h-20">
@@ -183,12 +169,14 @@ const NavBar = ({ bg, color, sub = false }) => {
                 </div>
               </div>
             </div>
-            <button
-              className="py-2 text-xl relative group-hover:text-black flex items-center justify-center space-x-4"
-              onClick={toggleUserOffCanvas}
-            >
-              <FaRegUser className="mb-1" />
-            </button>
+            <Tooltip title="User">
+              <button
+                className="py-2 text-xl relative group-hover:text-black flex items-center justify-center space-x-4"
+                onClick={toggleUserOffCanvas}
+              >
+                <FaRegUser className="mb-1" />
+              </button>
+            </Tooltip>
           </div>
         </div>
         {sub ? (
