@@ -32,7 +32,7 @@ const page = () => {
             </div>
           </div>
           <div className="flex justify-center pb-8">
-            <button className="border border-black text-black p-3 w-5/6 rounded-3xl ">
+            <button className="border border-black text-black p-3 w-5/6 rounded-3xl">
               +639760156425
             </button>
           </div>
@@ -49,7 +49,7 @@ const page = () => {
               </ol>
             </div>
           </div>
-          <div className="flex justify-center pb-8 mt-28 pt-1">
+          <div className="flex justify-center pb-8 pt-20 ">
             <button className="border border-black tex-black p-3 w-5/6 rounded-3xl">
               Chat With An Advisor
             </button>
@@ -64,38 +64,11 @@ const page = () => {
               </h5>
             </div>
           </div>
-          <div className="flex justify-center pb-8 mt-44 pt-1 ">
+          <div className="flex justify-center pt-44 pb-8">
             <button className="border border-black text-black p-3 w-5/6 rounded-3xl">
               Send Us An Email
             </button>
           </div>
-        </div>
-      </div>
-
-      <div className="bg-white my-10 mx-32">
-        <div className="mx-10 my-5 py-5">
-          <h1 className="text-black text-3xl">Frequenty Ask Question</h1>
-        </div>
-        <div className="grid lg:grid-cols-3 grid-cols-1">
-          <div className="col-span-1 text-black mx-10 flex-col text-lg">
-            <h1 className="pt-3">What is the return & exchange policy?</h1>
-            <h1 className="pt-3">
-              How do I return or exchange my online purchase?
-            </h1>
-          </div>
-          <div className="col-span-1 text-black mx-10 text-lg">
-            <h1 className="pt-3">What shipping options are available?</h1>
-            <h1 className="pt-3">Where are your services available?</h1>
-          </div>
-          <div className="col-span-1 text-black mx-10 text-lg">
-            <h1 className="pt-3">What are the available payment methods?</h1>
-            <h1 className="pt-3">Where do you send my reciept?</h1>
-          </div>
-        </div>
-        <div className="flex justify-center pb-8 mt-28">
-          <button className="border border-black text-black w-5/6 text-2xl p-3 rounded-3xl">
-            Discover All
-          </button>
         </div>
       </div>
     </div>
