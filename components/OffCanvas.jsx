@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-
+import Tooltip from "@mui/material/Tooltip";
 import { FaTimes } from "react-icons/fa";
 
 const OffCanvas = ({ isOpen, onClose }) => {
@@ -16,12 +16,14 @@ const OffCanvas = ({ isOpen, onClose }) => {
       ></div>
       <div className="absolute left-0 h-full w-1/4 bg-white text-black shadow-lg transition-all duration-300 ease-in-out transform translate-x-0">
         <div className="p-4 relative">
+        <Tooltip title="Close">
           <button
             onClick={onClose}
             className="p-1 absolute top-3 right-3 text-xl text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg"
           >
             <FaTimes />
           </button>
+          </Tooltip>
           <div className="space-y-4 mt-10">
             <Link
               href="/"

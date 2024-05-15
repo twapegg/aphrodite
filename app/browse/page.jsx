@@ -41,7 +41,7 @@ const Collections = () => {
         {collections.map((collection, index) => {
           return (
             <Link
-              href={`/browse/collections/${collection.name}`}
+              href={`\browse\collections/${collection.name}`}
               key={index}
               className="relative transition-transform duration-300 group-hover:scale-110"
             >
