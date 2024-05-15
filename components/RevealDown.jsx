@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { motion, useInView, useAnimation, useIsPresent } from "framer-motion";
-import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
 
 const RevealRight = ({ children }) => {
   const ref = useRef(null);
@@ -12,7 +11,7 @@ const RevealRight = ({ children }) => {
     if (isInView) {
       controls.start("up");
     }
-  }, [isInView]);
+  }, [isInView, controls]);
 
   return (
     <div ref={ref} className="relative fit-content overflow-hidden">
