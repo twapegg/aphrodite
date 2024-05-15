@@ -20,9 +20,9 @@ const ProductPage = ({
 
   return (
     <>
-      <div className="h-screen flex">
+      <div className="h-screen flex-col">
         {/* Left side: Carousel of images */}
-        <div className="w-1/2">
+        <div className="lg:w-1/2 w-full">
           {imgs
             ? imgs.map((imgUrl, index) => (
                 <ImageDisplay
@@ -35,19 +35,14 @@ const ProductPage = ({
         </div>
 
         {/* Right side: Product details */}
-        <div className="w-1/2 font-sans fixed top-0 right-0 h-screen bg-white flex items-center justify-center">
+        <div className="lg:w-1/2 lg:fixed lg:top-0 lg:right-0 h-screen bg-white flex items-center justify-center">
           <div className="flex flex-col text-black gap-0.5   h-1/2 w-1/2 mt-24">
-            <p className="text-sm ">{collection}</p>
-            <div className="flex flex-row justify-between">
-              <p className="text-xl">{name}</p>
-              <span>
-                <FaRegHeart className="mt-2" />
-              </span>
-            </div>
-            <p className="text-s text-gray-700 ">${price}</p>
+            <p className="text-sm font-bold">{collection}</p>
+            <p className="text-xl">{name}</p>
+            <p className="text-s text-gray-700 mt-3">${price}</p>
             <button
               onClick={addToCart}
-              className="bg-black text-white py-2.5 text-m rounded-full w-full mt-8 "
+              className="bg-black text-white py-3 text-m rounded-full w-full mt-8 hover:bg-white hover:text-black border hover border-black transition-all duration-300"
             >
               Add to Shopping Bag
             </button>

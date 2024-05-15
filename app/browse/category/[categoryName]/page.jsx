@@ -15,7 +15,6 @@ const CategoryPage = ({ params }) => {
   console.log(categoryName);
 
   useEffect(() => {
-    
     const fetchProducts = async () => {
       const res = await fetch(`/api/products/category/${categoryName}`);
       const data = await res.json();

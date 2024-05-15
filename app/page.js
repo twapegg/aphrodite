@@ -18,6 +18,30 @@ export default function Home() {
     }
   };
 
+  const Vivienne = {
+    title: "Vivienne Collection",
+    desc: "The Vivienne Collection is a tribute to the House's mascot, a playful character imagined by Nicolas Ghesquière.",
+    images: [
+      "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2021%2F09%2Flouis-vuitton-vivienne-family-travelers-jewellery-collection-release-info-002.jpg?cbr=1&q=90&fbclid=IwAR2WzMJXIIzXsi7jIEbiUbJ8uJ8aalzEuxPro2-j0rYK0Dxw5oNgtM-4Jls",
+
+      "https://eu.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-vivienne-dragon-pendant-yellow-gold-white-gold-lacquer-diamonds-colored-gemstones--Q93976_PM2_Front%20view.png?wid=1090&hei=1090",
+      "https://eu.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-vivienne-tiger-pendant-yellow-gold-white-gold-lacquer-diamonds-colored-gemstones-categories--Q93974_PM2_Front%20view.png?wid=1090&hei=1090&fbclid=IwAR1RW-dJaHdnoi9FmyVfprsu7J9-RoC6fSLEA3Npfvm3MM6BXPRuN1YXCEI",
+      "https://eu.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-vivienne-rooster-pendant-3-golds-lacquer-diamonds-colored-gemstones--Q93981_PM2_Front%20view.png?wid=1090&hei=1090&fbclid=IwAR3zExymTD7AvlSZy4rMWD1NfmMqaeLWPpkTs8jZhDxIoyBnGekofzbkyL4",
+    ],
+    alts: [
+      "Vivienne Collection Background",
+      "Vivienne Dragon Pendant",
+      "Vivienne Tiger Pendant",
+      "Vivienne Rooster Pendant",
+    ],
+    urls: [
+      "/browse/collections/",
+      "/shop/vivienne",
+      "/shop/vivienne",
+      "/shop/vivienne",
+    ],
+  };
+
   return (
     <div className="w-full">
       <NavBar bg="transparent" />
@@ -42,7 +66,7 @@ export default function Home() {
           {isPlaying ? <FaPause /> : <FaPlay />}
         </button>
       </section>
-      <Feature />
+      <Feature {...Vivienne} />
     </div>
   );
 }
