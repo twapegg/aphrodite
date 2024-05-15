@@ -40,6 +40,8 @@ const Feature = ({ title, desc, images, alts, urls }) => {
               className="w-full h-full object-cover bg-gradient-to-t from-zinc-100 to-zinc-300 shadow-lg"
               width={1000}
               height={1000}
+              loading="lazy"
+              unoptimized={true}
             />
           </Link>
         </Reveal>
@@ -51,6 +53,8 @@ const Feature = ({ title, desc, images, alts, urls }) => {
             className="w-full h-full object-cover bg-gradient-to-t from-zinc-100 to-zinc-300 shadow-lg"
             width={1000}
             height={1000}
+            loading="lazy"
+            unoptimized={true}
           />
         </RevealDown>
         <Reveal>
@@ -60,6 +64,8 @@ const Feature = ({ title, desc, images, alts, urls }) => {
             className="w-full h-full object-cover bg-gradient-to-t from-zinc-100 to-zinc-300 shadow-lg"
             width={1000}
             height={1000}
+            loading="lazy"
+            unoptimized={true}
           />
         </Reveal>
       </div>
