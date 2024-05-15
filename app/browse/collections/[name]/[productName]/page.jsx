@@ -14,7 +14,7 @@ const Product = ({ params }) => {
   useEffect(() => {
     const fetchProduct = async () => {
       const res = await fetch(
-        `/api/collections/${collectionName}/${productName}`
+        `/api/browse/collections/${collectionName}/${productName}`
       );
       const data = await res.json();
       setProduct(data);
