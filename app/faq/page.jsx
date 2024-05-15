@@ -70,8 +70,8 @@ const page = () => {
               <h1 className="underline">RETURN &amp; EXCHANGE</h1>
               <h5>
                 Online purchases can be returned complimentary online or in
-                stores [except Saks, Neiman Marcus, Bloomingdale's, Macy's, &
-                Nordstrom].
+                stores [except Saks, Neiman Marcus, Bloomingdale&apos;s,
+                Macy&apos;s, & Nordstrom].
               </h5>
             </AccordionDetails>
             <AccordionDetails>
@@ -135,7 +135,8 @@ const page = () => {
                 <li>Call Client Services: &#43;639760156425</li>
                 <li>
                   In store: Online purchases can be exchanged in stores [except
-                  Saks, Neiman Marcus, Bloomingdale's, Macy's, & Nordstrom].
+                  Saks, Neiman Marcus, Bloomingdale&apos;s, Macy&apos;s, &
+                  Nordstrom].
                 </li>
               </ol>
             </AccordionDetails>
@@ -165,8 +166,8 @@ const page = () => {
           <div className="ml-10">
             <AccordionDetails>
               Online purchases can be returned complimentary online or in stores
-              [except Saks, Neiman Marcus, Bloomingdale's, & Nordstrom] within
-              30 days of purchase.
+              [except Saks, Neiman Marcus, Bloomingdale&apos;s, & Nordstrom]
+              within 30 days of purchase.
             </AccordionDetails>
           </div>
         </Accordion>
