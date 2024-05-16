@@ -31,9 +31,9 @@ const Feature = ({ title, desc, images, alts, urls }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 h-screen gap-4 mx-32 mt-32">
+      <div className="grid grid-cols-3 h-screen gap-4 lg:mx-32 mt-32">
         <Reveal>
-          <Link href={urls[0]} className="group group-hover:scale-110">
+          <Link href={urls[0]}>
             <Image
               src={images[1]}
               alt={alts[1]}
@@ -47,26 +47,31 @@ const Feature = ({ title, desc, images, alts, urls }) => {
         </Reveal>
 
         <RevealDown>
-          <Image
-            src={images[2]}
-            alt={alts[2]}
-            className="w-full h-full object-cover bg-gradient-to-t from-zinc-100 to-zinc-300 shadow-lg"
-            width={1000}
-            height={1000}
-            loading="lazy"
-            unoptimized={true}
-          />
+          <Link href={urls[1]}>
+            <Image
+              src={images[2]}
+              alt={alts[2]}
+              className="w-full h-full object-cover bg-gradient-to-t from-zinc-100 to-zinc-300 shadow-lg"
+              width={1000}
+              height={1000}
+              loading="lazy"
+              unoptimized={true}
+            />
+          </Link>
         </RevealDown>
+
         <Reveal>
-          <Image
-            src={images[3]}
-            alt={alts[3]}
-            className="w-full h-full object-cover bg-gradient-to-t from-zinc-100 to-zinc-300 shadow-lg"
-            width={1000}
-            height={1000}
-            loading="lazy"
-            unoptimized={true}
-          />
+          <Link href={urls[2]}>
+            <Image
+              src={images[3]}
+              alt={alts[3]}
+              className="w-full h-full object-cover bg-gradient-to-t from-zinc-100 to-zinc-300 shadow-lg"
+              width={1000}
+              height={1000}
+              loading="lazy"
+              unoptimized={true}
+            />
+          </Link>
         </Reveal>
       </div>
     </section>

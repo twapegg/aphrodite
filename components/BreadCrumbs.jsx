@@ -30,9 +30,12 @@ const BreadCrumbs = ({ breadCrumbs }) => {
                 breadcrumb.link === currentPath
                   ? "text-gray-900"
                   : "text-gray-600 hover:text-gray-900"
-              } transition-colors duration-300`}
+              } transition-colors duration-300 `}
             >
+              <span className="underline-animation">
+
               {breadcrumb.name}
+              </span>
             </Link>
             {index < breadcrumbs.length - 1 && (
               <FaChevronRight className="mx-2 text-gray-400" />

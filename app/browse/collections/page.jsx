@@ -5,6 +5,7 @@ import Image from "next/image";
 import NavBar from "@/components/NavBar";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Skeleton from "@mui/material/Skeleton";
 
 const Collections = () => {
   const [collections, setCollections] = useState([]);
@@ -18,6 +19,8 @@ const Collections = () => {
     };
     fetchCollections();
   }, []);
+
+  console.log(collections.length);
 
   return (
     <>
@@ -38,17 +41,28 @@ const Collections = () => {
         </div>
       </div>
       <div className="px-10 py-10 grid lg:grid-cols-3 gap-5 md:grid-cols-2 grid-cols-1">
-        {collections.map((collection, index) => {
-          return (
-            <Link
-              href={`/browse/collections/${collection.name}`}
-              key={index}
-              className="relative transition-transform duration-300 group-hover:scale-110"
-            >
-              <Collection name={collection.name} img={collection.img} />
-            </Link>
-          );
-        })}
+        {collections.length > 0 ? (
+          collections.map((collection, index) => {
+            return (
+              <Link
+                href={`/browse/collections/${collection.name}`}
+                key={index}
+                className="relative transition-transform duration-300 group-hover:scale-110"
+              >
+                <Collection name={collection.name} img={collection.img} />
+              </Link>
+            );
+          })
+        ) : (
+          <>
+            <Skeleton variant="rect" width={300} height={300} />
+            <Skeleton variant="rect" width={300} height={300} />
+            <Skeleton variant="rect" width={300} height={300} />
+            <Skeleton variant="rect" width={300} height={300} />
+            <Skeleton variant="rect" width={300} height={300} />
+            <Skeleton variant="rect" width={300} height={300} />
+          </>
+        )}
       </div>
     </>
   );

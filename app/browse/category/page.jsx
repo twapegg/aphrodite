@@ -5,6 +5,7 @@ import Image from "next/image";
 import NavBar from "@/components/NavBar";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { Skeleton } from "@mui/material";
 
 const Category = () => {
   const [categories, setCategories] = useState([]);
@@ -39,17 +40,28 @@ const Category = () => {
         </div>
       </div>
       <div className="px-10 py-10 grid lg:grid-cols-3 gap-5 md:grid-cols-2 grid-cols-1">
-        {categories.map((category, index) => {
-          return (
-            <Link
-              href={`/browse/category/${category.name}`}
-              key={index}
-              className="relative transition-transform duration-300 group-hover:scale-110"
-            >
-              <Collection name={category.name} img={category.img} />
-            </Link>
-          );
-        })}
+        {categories.length > 0 ? (
+          categories.map((collection, index) => {
+            return (
+              <Link
+                href={`/browse/categories/${collection.name}`}
+                key={index}
+                className="relative transition-transform duration-300 group-hover:scale-110"
+              >
+                <Collection name={collection.name} img={collection.img} />
+              </Link>
+            );
+          })
+        ) : (
+          <>
+            <Skeleton variant="rect" width={300} height={300} />
+            <Skeleton variant="rect" width={300} height={300} />
+            <Skeleton variant="rect" width={300} height={300} />
+            <Skeleton variant="rect" width={300} height={300} />
+            <Skeleton variant="rect" width={300} height={300} />
+            <Skeleton variant="rect" width={300} height={300} />
+          </>
+        )}
       </div>
     </>
   );

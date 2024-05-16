@@ -42,6 +42,8 @@ export default function Home() {
     ],
   };
 
+  // const 
+
   return (
     <div className="w-full">
       <NavBar bg="transparent" />

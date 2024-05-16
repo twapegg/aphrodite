@@ -1,7 +1,6 @@
 "use client";
 import { BsBag } from "react-icons/bs";
 import { FaBars, FaSearch, FaRegUser, FaTimes } from "react-icons/fa";
-import { LuFilter } from "react-icons/lu";
 import Link from "next/link";
 import OffCanvas from "@/components/OffCanvas";
 import { useEffect, useState, useRef } from "react";
@@ -23,29 +22,20 @@ const NavBar = ({ bg, color, sub = false }) => {
 
   // Fetch cart and populate cartProducts
   useEffect(() => {
-    const fetchCart = async () => {
+    const fetchCartProducts = async () => {
       if (!session) {
         return;
       }
 
-      const res = await fetch(`/api/shoppingbag/${session.user.id}`);
+      const res = await fetch(`/api/shoppingbag/products/${session.user.id}`);
 
       if (res.status === 200) {
         const data = await res.json();
-
-        // Fetch the jewelry details for each jewelry in the cart
-        const products = await Promise.all(
-          data.jewelries.map(async (jewelry) => {
-            const res = await fetch(`/api/jewelry/${jewelry.jewelry}`);
-            return res.json();
-          })
-        );
-
-        setCartProducts(products);
+        setCartProducts(data);
       }
     };
 
-    fetchCart();
+    fetchCartProducts();
   }, [session]);
 
   const [isOffCanvasOpen, setIsOffCanvasOpen] = useState(false);
@@ -120,7 +110,7 @@ const NavBar = ({ bg, color, sub = false }) => {
           isFixed ? "bg-white text-black" : `bg-${bg} text-white`
         }  dark:border-gray-700 ${
           isFixed ? "fixed" : "absolute"
-        } top-0 left-0 right-0 z-10 transition-colors duration-500 ease-in-out group hover:bg-white hover:text-black`}
+        } top-0 left-0 right-0 z-10 transition-colors duration-1000 ease-in-out group hover:bg-white hover:text-black`}
       >
         <div
           className={`pb-4 px-10 xl:px-20 pt-3 flex flex-wrap items-center justify-between w-full text-${color} ${
@@ -168,7 +158,7 @@ const NavBar = ({ bg, color, sub = false }) => {
                 </button>
               </Tooltip>
               <div
-                className={`rounded-lg border border-black absolute top-12 right-0 w-96 h-[36rem] bg-white shadow-lg transition-all duration-300 text-black ${
+                className={`rounded-lg border shadow-xl absolute top-12 right-0 w-96 h-[36rem] bg-white transition-all duration-300 text-black ${
                   isShoppingBagOpen
                     ? "visible opacity-100"
                     : "invisible opacity-0"
@@ -176,9 +166,9 @@ const NavBar = ({ bg, color, sub = false }) => {
                 ref={dropdownRef}
               >
                 <div className="p-4">
-                  <h2 className="text-2xl">Shopping Bag</h2>
-                  <div className="flex flex-col justify-between items-center mt-4">
-                    <div className="overflow-auto max-h-[36rem] pb-8">
+                  <h2 className="text-2xl font-bold">Shopping Bag</h2>
+                  <div className="flex flex-col justify-between items-center mt-4 ">
+                    <div className="overflow-y-auto max-h-[30rem] scrollbar-none pb-24">
                       {cartProducts.length > 0 ? (
                         cartProducts.map((jewelry) => (
                           <div
@@ -199,7 +189,9 @@ const NavBar = ({ bg, color, sub = false }) => {
                           </div>
                         ))
                       ) : (
-                        <span className="text-lg">No items in your bag</span>
+                        <div className="flex flex-col justify-center items-center">
+                          <span className="text-lg ">No items in your bag</span>
+                        </div>
                       )}
 
                       <div className="absolute bottom-4 left-0 right-0 flex justify-center">
@@ -239,13 +231,6 @@ const NavBar = ({ bg, color, sub = false }) => {
             <div className=" text-black">
               <BreadCrumbs />
             </div>
-            <button
-              type="button"
-              className="border border-black text-black py-2 w-1/12 rounded-3xl flex justify-center items-center gap-2"
-            >
-              Filter
-              <LuFilter />
-            </button>
           </div>
         ) : null}
       </nav>

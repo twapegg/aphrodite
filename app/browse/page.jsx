@@ -1,6 +1,3 @@
-"use client";
-
-import Collection from "@/components/Collection";
 import Image from "next/image";
 import NavBar from "@/components/NavBar";
 import Link from "next/link";

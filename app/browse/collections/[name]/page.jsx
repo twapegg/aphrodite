@@ -12,7 +12,7 @@ const CollectionPage = ({ params }) => {
 
   useEffect(() => {
     const fetchImages = async () => {
-      const res = await fetch(`/api/collections/${collectionName}`);
+      const res = await fetch(`/api/browse/collections/${collectionName}`);
       const data = await res.json();
       setImages(data);
     };
