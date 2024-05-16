@@ -20,7 +20,7 @@ const Footer = () => {
         <div className="col-span-1">
           <h1 className="font-bold">THE HOUSE OF APHRODITE</h1>
           <div className="text-gray-600 mt-8 flex flex-col gap-2">
-            <Link href="/contact">
+            <Link href="/about">
               <span className="underline-animation">About Us</span>
             </Link>
             <a target="_blank" href="https://en.wikipedia.org/wiki/Aphrodite">

@@ -24,18 +24,15 @@ const Category = () => {
   return (
     <>
       <NavBar bg="white" color="black" />
-      <div className="relative h-[80vh] mt-7 xl:mt-20">
+      <div className="relative h-[80vh] mt-7 xl:mt-24">
         <Image
-          src="/cover/jewelry.jpeg"
-          alt="Hero Image"
+          src="https://images.preview.ph/preview/images/2019/05/31/LV-NM.jpg?fbclid=IwAR09nicNOPtYptEvln_zcCNs_IpF0VD5QEjkajV-NLPY0SqnyRZG8y1RRrU"
+          alt="Categories Hero Image"
           fill
           quality={100}
           className="object-cover"
-          style={{
-            objectPosition: "35% 20%",
-          }}
         />
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="bg-black bg-opacity-50 absolute inset-0 flex items-center justify-center">
           <h1 className="text-4xl font-bold text-white">Jewelry Categories</h1>
         </div>
       </div>
@@ -44,7 +41,7 @@ const Category = () => {
           categories.map((collection, index) => {
             return (
               <Link
-                href={`/browse/categories/${collection.name}`}
+                href={`/browse/category/${collection.name}`}
                 key={index}
                 className="relative transition-transform duration-300 group-hover:scale-110"
               >
@@ -54,12 +51,12 @@ const Category = () => {
           })
         ) : (
           <>
-            <Skeleton variant="rect" width={300} height={300} />
-            <Skeleton variant="rect" width={300} height={300} />
-            <Skeleton variant="rect" width={300} height={300} />
-            <Skeleton variant="rect" width={300} height={300} />
-            <Skeleton variant="rect" width={300} height={300} />
-            <Skeleton variant="rect" width={300} height={300} />
+            <Skeleton variant="rect" width={350} height={350} />
+            <Skeleton variant="rect" width={350} height={350} />
+            <Skeleton variant="rect" width={350} height={350} />
+            <Skeleton variant="rect" width={350} height={350} />
+            <Skeleton variant="rect" width={350} height={350} />
+            <Skeleton variant="rect" width={350} height={350} />
           </>
         )}
       </div>

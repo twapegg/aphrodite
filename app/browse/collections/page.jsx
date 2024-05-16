@@ -25,10 +25,10 @@ const Collections = () => {
   return (
     <>
       <NavBar bg="white" color="black" />
-      <div className="relative h-[80vh] mt-7 xl:mt-20">
+      <div className="relative h-[80vh] mt-7 xl:mt-32">
         <Image
-          src="/cover/jewelry.jpeg"
-          alt="Hero Image"
+          src="https://curatedition.com/wp-content/uploads/2021/06/Curatedition-Louis-Vuitton_B-Blossom-New-Additions-Feature.jpg?fbclid=IwAR3A6SUkAZTTXDLZ5ev8G_ax-nIW_gliFOe2cE64BM8y47K5Sq_CYLPugKc"
+          alt="Collections Hero Image"
           fill
           quality={100}
           className="object-cover"
@@ -36,7 +36,7 @@ const Collections = () => {
             objectPosition: "35% 20%",
           }}
         />
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="bg-black bg-opacity-40 absolute inset-0 flex items-center justify-center">
           <h1 className="text-4xl font-bold text-white">Jewelry Collections</h1>
         </div>
       </div>
@@ -55,12 +55,13 @@ const Collections = () => {
           })
         ) : (
           <>
-            <Skeleton variant="rect" width={300} height={300} />
-            <Skeleton variant="rect" width={300} height={300} />
-            <Skeleton variant="rect" width={300} height={300} />
-            <Skeleton variant="rect" width={300} height={300} />
-            <Skeleton variant="rect" width={300} height={300} />
-            <Skeleton variant="rect" width={300} height={300} />
+            <Skeleton variant="rect" width={350} height={350} />
+            <Skeleton variant="rect" width={350} height={350} />
+            <Skeleton variant="rect" width={350} height={350} />
+            <Skeleton variant="rect" width={350} height={350} />
+            <Skeleton variant="rect" width={350} height={350} />
+            <Skeleton variant="rect" width={350} height={350} />
+       
           </>
         )}
       </div>

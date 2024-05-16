@@ -24,16 +24,19 @@ const Feature = ({ title, desc, images, alts, urls }) => {
             <p className="text-white text-lg text-center">{desc}</p>
           </div>
           <div className="flex justify-center pb-16">
-            <button className="bg-black lg:mt-10 bg-opacity-50 backdrop-filter backdrop-blur-sm shadow-md border border-white hover:border-2 text-white px-24 py-3 rounded-3xl">
+            <Link
+              href={urls[0]}
+              className="bg-black lg:mt-10 bg-opacity-50 backdrop-filter backdrop-blur-sm shadow-md border border-white hover:border-2 text-white px-24 py-3 rounded-3xl"
+            >
               Shop Now
-            </button>
+            </Link>
           </div>
         </div>
       </div>
 
       <div className="grid grid-cols-3 h-screen gap-4 lg:mx-32 mt-32">
         <Reveal>
-          <Link href={urls[0]}>
+          <Link href={urls[1]}>
             <Image
               src={images[1]}
               alt={alts[1]}
@@ -47,7 +50,7 @@ const Feature = ({ title, desc, images, alts, urls }) => {
         </Reveal>
 
         <RevealDown>
-          <Link href={urls[1]}>
+          <Link href={urls[2]}>
             <Image
               src={images[2]}
               alt={alts[2]}
@@ -61,7 +64,7 @@ const Feature = ({ title, desc, images, alts, urls }) => {
         </RevealDown>
 
         <Reveal>
-          <Link href={urls[2]}>
+          <Link href={urls[3]}>
             <Image
               src={images[3]}
               alt={alts[3]}
