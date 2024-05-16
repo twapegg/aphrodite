@@ -126,10 +126,13 @@ const NavBar = ({ bg, color, sub = false }) => {
               <FaBars className="mb-[0.5]" />
               <span>Menu</span>
             </button>
-            <button className="invisible lg:visible py-2 xl:text-xl relative group-hover:text-black flex items-center justify-center space-x-4">
+            <Link
+              href="/search"
+              className="invisible lg:visible py-2 xl:text-xl relative group-hover:text-black flex items-center justify-center space-x-4"
+            >
               <FaSearch className="mb-[0.5]" />
               <span>Search</span>
-            </button>
+            </Link>
           </div>
           {/* Center */}
           <div className="flex justify-center w-1/3">
