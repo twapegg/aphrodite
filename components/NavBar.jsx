@@ -10,8 +10,43 @@ import Tooltip from "@mui/material/Tooltip";
 import UserOffCanvas from "./UserOffcanvas";
 import BreadCrumbs from "./BreadCrumbs";
 
+import { useSession } from "next-auth/react";
+import Image from "next/image";
+
 const NavBar = ({ bg, color, sub = false }) => {
   // menu offcanvas
+
+  const { data: session } = useSession();
+
+  // Get user's cart
+  const [cartProducts, setCartProducts] = useState([]);
+
+  // Fetch cart and populate cartProducts
+  useEffect(() => {
+    const fetchCart = async () => {
+      if (!session) {
+        return;
+      }
+
+      const res = await fetch(`/api/shoppingbag/${session.user.id}`);
+
+      if (res.status === 200) {
+        const data = await res.json();
+
+        // Fetch the jewelry details for each jewelry in the cart
+        const products = await Promise.all(
+          data.jewelries.map(async (jewelry) => {
+            const res = await fetch(`/api/jewelry/${jewelry.jewelry}`);
+            return res.json();
+          })
+        );
+
+        setCartProducts(products);
+      }
+    };
+
+    fetchCart();
+  }, [session]);
 
   const [isOffCanvasOpen, setIsOffCanvasOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
@@ -133,7 +168,7 @@ const NavBar = ({ bg, color, sub = false }) => {
                 </button>
               </Tooltip>
               <div
-                className={`rounded-lg border border-black absolute top-12 right-0 w-80 h-96 bg-white shadow-lg transition-all duration-300 text-black ${
+                className={`rounded-lg border border-black absolute top-12 right-0 w-96 h-[36rem] bg-white shadow-lg transition-all duration-300 text-black ${
                   isShoppingBagOpen
                     ? "visible opacity-100"
                     : "invisible opacity-0"
@@ -142,8 +177,39 @@ const NavBar = ({ bg, color, sub = false }) => {
               >
                 <div className="p-4">
                   <h2 className="text-2xl">Shopping Bag</h2>
-                  <div className="flex justify-between items-center mt-4">
-                    <span className="text-lg">No items in your bag</span>
+                  <div className="flex flex-col justify-between items-center mt-4">
+                    <div className="overflow-auto max-h-[36rem] pb-8">
+                      {cartProducts.length > 0 ? (
+                        cartProducts.map((jewelry) => (
+                          <div
+                            key={jewelry._id}
+                            className="flex items-center gap-4 border-b border-gray-300 py-2 w-full relative"
+                          >
+                            <Image
+                              src={jewelry.imgs[0]}
+                              alt={jewelry.name}
+                              className="object-cover"
+                              width={80}
+                              height={80}
+                            />
+                            <div>
+                              <p className="text-lg">{jewelry.name}</p>
+                              <p className="text-lg">${jewelry.price}</p>
+                            </div>
+                          </div>
+                        ))
+                      ) : (
+                        <span className="text-lg">No items in your bag</span>
+                      )}
+
+                      <div className="absolute bottom-4 left-0 right-0 flex justify-center">
+                        <Link href="/shoppingbag">
+                          <button className="text-white bg-black py-2 px-16 rounded-3xl hover:border hover:border-white hover:">
+                            View Bag
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
                     <Tooltip title="Close">
                       <button
                         onClick={closeShoppingBag}
@@ -153,19 +219,6 @@ const NavBar = ({ bg, color, sub = false }) => {
                       </button>
                     </Tooltip>
                   </div>
-                </div>
-                <div className="flex justify-center items-center h-20">
-                  <Link href="/shoppingbag">
-                    <button className="text-white bg-black py-2 px-4 rounded-3xl">
-                      View Bag
-                    </button>
-                  </Link>
-
-                  <Link href="/checkout">
-                    <button className="text-black bg-white border border-black py-2 px-4 rounded-3xl ml-4">
-                      Checkout
-                    </button>
-                  </Link>
                 </div>
               </div>
             </div>

@@ -38,6 +38,8 @@ const handler = NextAuth({
           });
         }
 
+        // store the user id from MongoDB to local storage
+
         return true;
       } catch (error) {
         console.log("Error checking if user exists: ", error.message);

@@ -1,8 +1,9 @@
 import React from "react";
 import ImageDisplay from "@/components/ImageDisplay";
-import { FaRegHeart } from "react-icons/fa";
+import { useSession } from "next-auth/react";
 
 const ProductPage = ({
+  id,
   collection,
   name,
   price,
@@ -10,12 +11,24 @@ const ProductPage = ({
   description,
   isAvailable,
 }) => {
-  const addToCart = async (userID, jewelry) => {
+  const { data: session } = useSession();
+
+  const addToCart = async () => {
+    if (!session) {
+      alert("Please sign in to add to cart");
+      return;
+    }
+
     const res = await fetch("/api/shoppingbag/add", {
       method: "POST",
-      body: JSON.stringify({ userID, jewelry }),
+      body: JSON.stringify({ userID: session.user.id, jewelry: id }),
     });
-    const data = await res.json();
+
+    if (res.status === 201) {
+      alert("Added to cart");
+    } else {
+      alert("Failed to add to cart");
+    }
   };
 
   return (

@@ -1,40 +1,46 @@
-// import Cart from "@/models/cart";
-// import { connectToDB } from "@/utils/database";
+import Cart from "@/models/cart";
+import Jewelry from "@/models/jewelry";
+import { connectToDB } from "@/utils/database";
 
-// export const POST = async (request) => {
-//   const { userID, jewelry } = await request.json();
+export const POST = async (request) => {
+  const { userID, jewelry } = await request.json();
 
-//   try {
-//     await connectToDB();
+  try {
+    await connectToDB();
 
-//     // check if user already has a cart
-//     const userCart = await Cart.findOne({ user: userID });
+    const userCart = await Cart.findOne({ user: userID });
 
-//     // if not, create a new document and save user in MongoDB
-//     if (!userCart) {
-//       await Cart.create({
-//         user: userID,
-//         jewelries: [jewelry._id, jewelry.quantity],
-//         subTotal: jewelry.price * jewelry.quantity,
-//       });
-//     }
+    const jewelryProduct = await Jewelry.findById(jewelry);
 
-//     // if user already has a cart, update the existing cart
-//     const updatedCart = await Cart.findOneAndUpdate(
-//       { user: userID },
-//       {
-//         $push: {
-//           jewelries: [jewelry._id, jewelry.quantity],
-//         },
-//         $inc: {
-//           subTotal: jewelry.price * jewelry.quantity,
-//         },
-//       },
-//       { new: true }
-//     );
+    if (!userCart) {
+      const newCart = new Cart({
+        user: userID,
+        jewelries: [{ jewelry: jewelryProduct._id, quantity: 1 }],
+        subTotal: jewelryProduct.price,
+      });
 
-//     return new Response("Cart updated successfully", { status: 200 });
-//   } catch (error) {
-//     return new Response("Failed to add to cart", { status: 500 });
-//   }
-// };
+      await newCart.save();
+    } else {
+      const jewelryIndex = userCart.jewelries.findIndex(
+        (j) => j.jewelry.toString() === jewelry
+      );
+
+      if (jewelryIndex === -1) {
+        userCart.jewelries.push({ jewelry: jewelryProduct._id, quantity: 1 });
+      } else {
+        userCart.jewelries[jewelryIndex].quantity++;
+      }
+      userCart.subTotal += jewelryProduct.price;
+      await userCart.save();
+    }
+
+    return new Response(JSON.stringify(), {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      status: 201,
+    });
+  } catch (error) {
+    return new Response("Failed to add to cart", { status: 500 });
+  }
+};

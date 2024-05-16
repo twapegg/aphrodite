@@ -2,13 +2,13 @@ import { Schema, model, models } from "mongoose";
 
 const cartSchema = new Schema({
   user: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "User",
   },
   jewelries: [
     {
       jewelry: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "Jewelry",
       },
       quantity: Number,

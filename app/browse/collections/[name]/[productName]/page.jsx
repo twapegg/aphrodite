@@ -23,11 +23,11 @@ const Product = ({ params }) => {
     fetchProduct();
   }, [productName, collectionName]);
 
-
   return (
     <>
       <NavBar color={"black"} />
       <ProductPage
+        id={product._id}
         collection={product.collection}
         name={product.name}
         imgs={product.imgs}
