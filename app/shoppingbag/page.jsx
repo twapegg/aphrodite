@@ -43,6 +43,34 @@ const ShoppingBag = () => {
     fetchCart();
   }, [session]);
 
+  const removeItem = async (id) => {
+    if (!session) {
+      toast.error("You must be signed in!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+
+      return;
+    }
+
+    const res = await fetch("/api/shoppingbag/remove", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userID: session.user.id, jewelryID: id }),
+    });
+
+    if (res.status === 200) {
+      // change state
+    }
+  };
   const clearCart = async () => {
     if (!session) {
       toast.error("You must be signed in!", {
@@ -104,7 +132,7 @@ const ShoppingBag = () => {
       <div className="relative h-[60vh] mt-32 xl:mt-20">
         <Image
           src="https://media.gucci.com/content/HeroShortStandard_3200x654/1684494946/HeroShortStandard_Gucci-Prefall-May2023-03_001_Default.jpg"
-          alt="Shopping Bag Image"
+          alt="Checkout Image"
           fill
           quality={100}
           className="object-cover w-full"
@@ -121,7 +149,10 @@ const ShoppingBag = () => {
           <div className="mt-8 col-span-2 border ">
             {cartProducts
               ? cartProducts.map((product) => (
-                  <div key={product.id} className="grid grid-cols-6">
+                  <div
+                    key={product.id}
+                    className="grid grid-cols-6 border-b shadow-md"
+                  >
                     <div className="col-span-1 w-full h-full">
                       <Image
                         src={product.imgs[0]}
@@ -135,8 +166,11 @@ const ShoppingBag = () => {
 
                     <div className="col-span-5 flex justify-between items-center gap-2 px-4 py-2 text-black">
                       <div className="flex flex-col gap-1">
+                        <h2 className="text-md font-bold text-gray-500">
+                          {product.collection}
+                        </h2>
                         <h2 className="text-lg font-bold">{product.name}</h2>
-                        <p className="text-gray-500">{product.price}</p>
+                        <p className="text-gray-500">${product.price}</p>
                       </div>
                       <button className=" bg-white border border-black hover:text-white hover:bg-black transition-colors duration-300 p-2 rounded-3xl text-center">
                         <FaTimes />
