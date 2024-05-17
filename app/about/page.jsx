@@ -93,13 +93,15 @@ const page = () => {
           </h5>
         </div>
 
-        <div className="relative h-[24rem] mt-32">
+        <div className="relative h-screen mt-32">
           <Image
-            src="https://www.zoemagazine.net/wp-content/uploads/2023/08/LOUIS-VUITTON-BLOSSOM_ADV-CAMPAIGN_ANA-DE-ARMAS_%C2%A9CRAIG-MC-DEAN_CMJN.jpg"
+            src="/aboutus/group.jpg"
             alt="Aphrodite Image"
             className="w-full"
             layout="fill"
             objectFit="cover"
+            quality={100}
+            unoptimized={true}
           />
           <div className="absolute top-0 left-0 h-full w-full bg-black bg-opacity-50 flex items-center justify-center">
             <h1 className="text-6xl text-white">OUR JOURNEY</h1>

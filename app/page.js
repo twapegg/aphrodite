@@ -51,7 +51,28 @@ export default function Home() {
     ],
   };
 
-  // const
+  const Idylle = {
+    title: "Idylle Blossom Collection",
+    desc: "Imbued with contemporary femininity, the delicate creations in the Idylle Blossom Collection are balanced around three luminous shades of gold, outlining a refined allure.",
+    images: [
+      "https://eu.louisvuitton.com/content/dam/lv/online/high-end/women/jewelry/W_Jwl_Blossom_V4.html/jcr:content/assets/idylle/JEWELRY_BLOSSOM_020_ME_LVCOM_1600x2000_DII.jpg?imwidth=1090",
+      "https://eu.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-idylle-blossom-two-row-ring-pink-gold-and-diamonds-categories--Q9N42A_PM2_Front%20view.png?wid=1090&hei=1090",
+      "https://eu.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-idylle-blossom-paved-ring-3-golds-and-diamonds-categories--Q9R75A_PM2_Front%20view.png?wid=1090&hei=1090",
+      "https://eu.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-idylle-blossom-ear-stud-pink-gold-and-diamonds-per-unit-categories--Q06169_PM2_Front%20view.png?wid=1090&hei=1090",
+    ],
+    alts: [
+      "Idylle Blossom Collection Background",
+      "Idylle Blossom two-row Ring",
+      "Idylle Blossom paved Ring",
+      "Idylle Blossom two-row Ring",
+    ],
+    urls: [
+      "/browse/collections/Idylle Blossom",
+      "http://localhost:3000/browse/collections/Idylle/Idylle%20Blossom%20Two-Row%20Ring,%20Pink%20Gold%20And%20Diamonds",
+      "http://localhost:3000/browse/collections/Idylle/Idylle%20Blossom%20Paved%20Ring,%203%20Golds%20And%20Diamonds",
+      "http://localhost:3000/browse/collections/Idylle/Idylle%20Blossom%20Ear%20Stud,%20Pink%20Gold%20And%20Diamonds%20-%20Per%20Unit",
+    ],
+  };
 
   return (
     <div className="w-full">
@@ -85,6 +106,7 @@ export default function Home() {
         </button>
       </section>
       <Feature {...Vivienne} />
+      <Feature {...Idylle} />
     </div>
   );
 }

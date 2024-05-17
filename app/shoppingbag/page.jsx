@@ -35,7 +35,6 @@ const ShoppingBag = () => {
         );
 
         setCart(data);
-        console.log(data);
         setCartProducts(products);
       }
     };
@@ -43,34 +42,6 @@ const ShoppingBag = () => {
     fetchCart();
   }, [session]);
 
-  const removeItem = async (id) => {
-    if (!session) {
-      toast.error("You must be signed in!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-
-      return;
-    }
-
-    const res = await fetch("/api/shoppingbag/remove", {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userID: session.user.id, jewelryID: id }),
-    });
-
-    if (res.status === 200) {
-      // change state
-    }
-  };
   const clearCart = async () => {
     if (!session) {
       toast.error("You must be signed in!", {
@@ -111,6 +82,7 @@ const ShoppingBag = () => {
 
     if (res.status === 200) {
       setCartProducts([]);
+      setCart([]);
       toast.success("Transaction success!", {
         position: "top-right",
         autoClose: 5000,
@@ -146,7 +118,7 @@ const ShoppingBag = () => {
       </div>
       <div className="lg:container mx-auto mb-40">
         <div className="grid grid-cols-3 py-14">
-          <div className="mt-8 col-span-2 border ">
+          <div className="mt-8 col-span-2">
             {cartProducts
               ? cartProducts.map((product) => (
                   <div
@@ -170,7 +142,7 @@ const ShoppingBag = () => {
                           {product.collection}
                         </h2>
                         <h2 className="text-lg font-bold">{product.name}</h2>
-                        <p className="text-gray-500">${product.price}</p>
+                        <p className="text-black text-2xl">${product.price}</p>
                       </div>
                       <button className=" bg-white border border-black hover:text-white hover:bg-black transition-colors duration-300 p-2 rounded-3xl text-center">
                         <FaTimes />
@@ -182,7 +154,7 @@ const ShoppingBag = () => {
           </div>
 
           <div className="ml-3 mt-8 col-span-1 px-6 py-4 text-black border border-gray-200 shadow-md flex flex-col justify-center">
-            <h2 className="text-3xl font-bold text-center">ORDER SUMMARY</h2>
+            <h2 className="text-3xl font-bold text-center">Order Summary</h2>
             <div className="flex justify-between mt-4 text-xl">
               <p>Subtotal</p>
               <p>${cart.subTotal}.00</p>
@@ -196,7 +168,10 @@ const ShoppingBag = () => {
               <p>Estimated Total</p>
               <p>${cart.subTotal + 50.0}.00</p>
             </div>
-            <button className="bg-black text-white py-2 px-4 rounded-3xl mt-4 border border-black hover:bg-white hover:text-black transition-colors duration-300">
+            <button
+              onClick={clearCart}
+              className="bg-black text-white py-2 px-4 rounded-3xl mt-4 border border-black hover:bg-white hover:text-black transition-colors duration-300"
+            >
               Checkout
             </button>
             <ToastContainer />
