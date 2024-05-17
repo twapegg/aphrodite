@@ -33,12 +33,20 @@ const OffCanvas = ({ isOpen, onClose }) => {
               Home
             </Link>
             <Link
+              href="/search"
+              onClick={onClose}
+              className="flex items-center hover:bg-gray-200 lg:hidden justify-between py-2 px-4 rounded-md font-bold text-xl group hover:underline-animation"
+            >
+              Search
+            </Link>
+            <Link
               href="/browse"
               onClick={onClose}
               className="flex items-center hover:bg-gray-200 justify-between py-2 px-4 rounded-md font-bold text-xl group hover:underline-animation"
             >
               Browse Jewelry
             </Link>
+
             <Link
               href="/browse/collections"
               onClick={onClose}
@@ -53,13 +61,7 @@ const OffCanvas = ({ isOpen, onClose }) => {
             >
               Categories
             </Link>
-            <Link
-              href="/search"
-              onClick={onClose}
-              className="flex items-center hover:bg-gray-200 lg:hidden justify-between py-2 px-4 rounded-md font-bold text-xl group hover:underline-animation"
-            >
-              Search
-            </Link>
+
             <Link
               href="/about"
               onClick={onClose}
@@ -70,7 +72,7 @@ const OffCanvas = ({ isOpen, onClose }) => {
             <Link
               href="/contact"
               onClick={onClose}
-              className="flex items-center hover:bg-gray-200 justify-between py-2 px-4 rounded-md font-bold text-xl group hover:underline-animation"
+              className="flex items-center hover:bg-gray-200 lg:hidden justify-between py-2 px-4 rounded-md font-bold text-xl group hover:underline-animation"
             >
               Contact Us
             </Link>

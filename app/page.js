@@ -6,9 +6,11 @@ import NavBar from "@/components/NavBar";
 import { useState, useRef } from "react";
 
 import { FaPause, FaPlay } from "react-icons/fa";
+import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
 
 export default function Home() {
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const videoRef = useRef(null);
 
   const togglePlayPause = () => {
@@ -18,6 +20,13 @@ export default function Home() {
     }
   };
 
+  //
+  const toggleAudio = () => {
+    setIsMuted((prevState) => !prevState);
+    if (videoRef.current) {
+      videoRef.current.muted = isMuted;
+    }
+  };
   const Vivienne = {
     title: "Vivienne Collection",
     desc: "The Vivienne Collection is a tribute to the House's mascot, a playful character imagined by Nicolas Ghesquière.",
@@ -60,12 +69,19 @@ export default function Home() {
           className="absolute inset-0 w-full h-full object-cover z-1"
           ref={videoRef}
           playing={isPlaying}
+          id="video"
         />
         <button
           className="absolute bottom-4 left-4 text-white px-4 py-2 rounded-full"
           onClick={togglePlayPause}
         >
           {isPlaying ? <FaPause /> : <FaPlay />}
+        </button>
+        <button
+          className="absolute bottom-4 right-4 text-white px-4 py-2 rounded-full"
+          onClick={toggleAudio}
+        >
+          {isMuted ? <HiSpeakerWave /> : <HiSpeakerXMark />}
         </button>
       </section>
       <Feature {...Vivienne} />

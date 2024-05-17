@@ -31,6 +31,9 @@ const ProductPage = ({
         theme: "colored",
       });
 
+      // refresh the page
+      window.location.reload();
+
       return;
     }
 
