@@ -52,7 +52,7 @@ const Footer = () => {
           <Link href="/map">
             <span className="underline-animation">Sitemap</span>
           </Link>
-          <Link href="/terms">
+          <Link href="/term">
             <span className="underline-animation">Terms of Service</span>
           </Link>
         </div>

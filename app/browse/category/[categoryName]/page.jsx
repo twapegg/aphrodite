@@ -35,7 +35,7 @@ const CategoryPage = ({ params }) => {
         <div className="grid grid-cols-4 gap-4 mt-10">
           {products.map((product, index) => (
             <Link
-              href={`/browse/collections/${params.categoryName}/${product.name}`}
+              href={`/browse/collections/${product.collection}/${product.name}`}
               key={index}
             >
               <Image
