@@ -124,14 +124,14 @@ const NavBar = ({ bg, color, sub = false }) => {
               onClick={toggleOffCanvas}
             >
               <FaBars className="mb-[0.5]" />
-              <span>Menu</span>
+              <span className="underline-animation">Menu</span>
             </button>
             <Link
               href="/search"
               className="invisible lg:visible py-2 xl:text-xl relative group-hover:text-black flex items-center justify-center space-x-4"
             >
               <FaSearch className="mb-[0.5]" />
-              <span>Search</span>
+              <span className="underline-animation">Search</span>
             </Link>
           </div>
           {/* Center */}
@@ -145,7 +145,7 @@ const NavBar = ({ bg, color, sub = false }) => {
           {/* Right side */}
           <div className="flex items-center w-1/3 justify-end gap-10">
             <Link href="/contact" className="invisible lg:visible">
-              <span className="text-xl whitespace-nowrap group-hover:text-black">
+              <span className="text-xl whitespace-nowrap group-hover:text-black underline-animation">
                 Contact Us
               </span>
             </Link>

@@ -5,8 +5,7 @@ const page = () => {
   return (
     <>
       <NavBar bg={"white"} color="black" />
-      <div className="bg-slate-100 pt-28 px-20 py-10">
-        <h1 className="text-4xl text-black font-bold pt-20 ">Navigation Bar</h1>
+      <div className="bg-zinc-300 pt-28 px-20 py-10">
         <div className=" grid lg:grid-cols-3 grid-cols-1 pt-20 text-black place-items-start">
           <div className="text-xl col-span-1 flex flex-col sm:pb-5 lg:pl-8">
             <h5 className="font-bold">Menu</h5>
@@ -47,8 +46,7 @@ const page = () => {
           </div>
         </div>
       </div>
-      <div className="bg-slate-100 pt-28 px-20 py-10 my-10">
-        <h1 className="text-4xl text-black font-bold pt-20 ">Footer</h1>
+      <div className="bg-zinc-300 px-20 py-10 my-10">
         <div className=" grid lg:grid-cols-3 grid-cols-1 pt-20 text-black place-items-start">
           <div className="text-xl col-span-1 flex flex-col sm:pb-5 lg:pl-8">
             <Link href="/contact">
@@ -79,7 +77,7 @@ const page = () => {
             </a>
             <Link href="/newsletter">
               <span className="underline-animation">
-                Subscribe to our newsletter
+                Newsletter
               </span>
             </Link>
           </div>

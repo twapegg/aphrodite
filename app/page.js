@@ -45,9 +45,9 @@ export default function Home() {
     ],
     urls: [
       "/browse/collections/Vivienne",
-      "http://localhost:3000/browse/collections/Vivienne/Vivienne%20Dragon%20Pendant,%20Yellow%20Gold,%20White%20Gold,%20Lacquer,%20Diamonds%20&%20Colored%20Gemstones",
-      "http://localhost:3000/browse/collections/Vivienne/Vivienne%20Rabbit%20Pendant,%20White%20Gold,%20Lacquer,%20Diamonds%20&%20Colored%20Gemstones",
-      "http://localhost:3000/browse/collections/Vivienne/Vivienne%20Sheep%20Pendant,%20Yellow%20Gold,%20White%20Gold,%20Grey%20Mother-Of-Pearl,%20Diamonds%20&%20Colored%20Gemstones",
+      "http://aphrodite-orpin.vercel.app/browse/collections/Vivienne/Vivienne%20Dragon%20Pendant,%20Yellow%20Gold,%20White%20Gold,%20Lacquer,%20Diamonds%20&%20Colored%20Gemstones",
+      "http://aphrodite-orpin.vercel.app/browse/collections/Vivienne/Vivienne%20Rabbit%20Pendant,%20White%20Gold,%20Lacquer,%20Diamonds%20&%20Colored%20Gemstones",
+      "http://aphrodite-orpin.vercel.app/browse/collections/Vivienne/Vivienne%20Sheep%20Pendant,%20Yellow%20Gold,%20White%20Gold,%20Grey%20Mother-Of-Pearl,%20Diamonds%20&%20Colored%20Gemstones",
     ],
   };
 
@@ -68,9 +68,9 @@ export default function Home() {
     ],
     urls: [
       "/browse/collections/Idylle Blossom",
-      "http://localhost:3000/browse/collections/Idylle/Idylle%20Blossom%20Two-Row%20Ring,%20Pink%20Gold%20And%20Diamonds",
-      "http://localhost:3000/browse/collections/Idylle/Idylle%20Blossom%20Paved%20Ring,%203%20Golds%20And%20Diamonds",
-      "http://localhost:3000/browse/collections/Idylle/Idylle%20Blossom%20Ear%20Stud,%20Pink%20Gold%20And%20Diamonds%20-%20Per%20Unit",
+      "http://aphrodite-orpin.vercel.app/browse/collections/Idylle/Idylle%20Blossom%20Two-Row%20Ring,%20Pink%20Gold%20And%20Diamonds",
+      "http://aphrodite-orpin.vercel.app/browse/collections/Idylle/Idylle%20Blossom%20Paved%20Ring,%203%20Golds%20And%20Diamonds",
+      "http://aphrodite-orpin.vercel.app/browse/collections/Idylle/Idylle%20Blossom%20Ear%20Stud,%20Pink%20Gold%20And%20Diamonds%20-%20Per%20Unit",
     ],
   };
 

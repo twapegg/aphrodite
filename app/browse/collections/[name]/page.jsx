@@ -37,7 +37,7 @@ const CollectionPage = ({ params }) => {
           {collectionName} Collections
         </span>
         {/* display on large, turn into a carousel on mobile */}
-        <div className="grid grid-cols-3 gap-2 mt-10">
+        <div className="hidden lg:grid grid-cols-3 gap-2 mt-10 ">
           {modelImages.map((imgUrl, index) => (
             <Image
               key={index}
@@ -50,19 +50,19 @@ const CollectionPage = ({ params }) => {
             />
           ))}
         </div>
-        <div className="grid grid-cols-4 gap-4 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
           {products.map((product, index) => (
             <Link
               href={`/browse/collections/${collectionName}/${product.name}`}
               key={index}
+              className="relative h-[500px]"
             >
               <Image
                 src={product.imgs[0]}
                 alt={product.name}
-                width={500}
-                height={500}
+                fill
                 loading="lazy"
-                className="bg-gradient-to-t from-zinc-100 to-zinc-300"
+                className="bg-gradient-to-t from-zinc-100 to-zinc-300 w-full object-cover"
                 unoptimized={true}
               />
             </Link>
